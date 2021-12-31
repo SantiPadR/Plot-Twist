@@ -15,11 +15,21 @@ Plot-Twist requiere las siguientes dependencias que necesitan ser instaladas pre
 Para instalar Plot-Twist no son necesarios permisos de administrador/sudo, simplemente sigue los siguientes pasos:
 
 1. Descarga el código de Github, por ejemplo, a tu carpeta opt (asegúrate de que tienes dicha carpeta o creala con mkdir opt en tu carpeta home):
-2. Añade a tu variable PATH definida en tu .bashrc la ruta a la carpeta de scripts para que los scripts de Plot-Twist puedan ser ejecutados desde la línea de comandos:
-3. Añade a tu .bashrc una nueva variable plotwist indicando la ruta a la carpeta de Plot-Twist:
-```
+ ```
 cd
 mkdir opt
 cd opt
-git clone 
+git clone https://github.com/SantiPadR/Plot-Twist.git
+```
+2. Añade a tu variable PATH definida en tu .bashrc la ruta a la carpeta de scripts para que los scripts de Plot-Twist puedan ser ejecutados desde la línea de comandos:
+```
+cd
+echo "PATH=$PATH:$HOME/opt/plotwist/scripts" >> .bashrc
+source .bashrc
+```
+3. Añade a tu .bashrc una nueva variable plotwist indicando la ruta a la carpeta de Plot-Twist:
+
+```
+echo "export plotwist=$HOME/opt/plotwist/" .bashrc
+source .bashrc
 ```
