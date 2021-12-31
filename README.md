@@ -11,3 +11,15 @@ Plot-Twist requiere las siguientes dependencias que necesitan ser instaladas pre
 - [Bowtie 2: Una herramienta ultrarrápida y eficiente para el alineamiento de lecturas de secuenciación a secuencias de referencia largas](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 - [Samtools: Lectura/escritura/edición/indexación/inspección de formato SAM/BAM/CRAM](http://www.htslib.org/)
 - MACS2: [Análisis basado en modelos para ChIP-Seq](https://pypi.org/project/MACS2/)
+
+Para instalar Plot-Twist no son necesarios permisos de administrador/sudo, simplemente sigue los siguientes pasos:
+
+1. Descarga el código de Github, por ejemplo, a tu carpeta opt (asegúrate de que tienes dicha carpeta o creala con mkdir opt en tu carpeta home):
+2. Añade a tu variable PATH definida en tu .bashrc la ruta a la carpeta de scripts para que los scripts de Plot-Twist puedan ser ejecutados desde la línea de comandos:
+3. Añade a tu .bashrc una nueva variable plotwist indicando la ruta a la carpeta de Plot-Twist:
+```
+cd
+mkdir opt
+cd opt
+git clone 
+```
