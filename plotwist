@@ -3,11 +3,20 @@
 ## Help message
 if [ $# -ne 1 ]
 then
+   echo "______ _       _        _____        _     _   "
+   echo "| ___ \ |     | |      |_   _|      (_)   | |  "
+   echo "| |_/ / | ___ | |_ ______| |_      ___ ___| |_ "
+   echo "|  __/| |/ _ \| __|______| \ \ /\ / / / __| __|"
+   echo "| |   | | (_) | |_       | |\ V  V /| \__ \ |_ "
+   echo "\_|   |_|\___/ \__|      \_/ \_/\_/ |_|___/\__|"
+   echo "                                               "
    echo ""
    echo "usage: plotwist  <param_file>"
    echo ""
    echo "param_file: file where the parameters are specified"
    echo ""
+   echo "Check the readme file for additional information"
+   echo "on how to write the parameter file"
    exit
 fi
 

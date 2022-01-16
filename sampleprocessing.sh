@@ -48,6 +48,10 @@ samtools index input${i}.bam
 cd ../../results
 macs2 callpeak -t $SAMPLEDIR/chip${i}.bam -c $SAMPLEDIR/input${i}.bam -f BAM --outdir . -n sample${i}
 
+## Motif analysis with HOMER
+
+findMotifsGenome.pl sample${i}_summits.bed ../genome/genome.fa homer_sample${i}/ -size 200 -len 8
+
 ## escribir en el blackboard
 echo "sample ${i} processed" >> ../../logs/blackboard_samples
 
@@ -61,4 +65,3 @@ if [ $NSAMDONE -eq $NUMSAMPLES ]
 then
    echo "All samples have been processed"
 fi
-
