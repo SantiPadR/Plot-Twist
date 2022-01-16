@@ -15,8 +15,7 @@ then
    echo ""
    echo "param_file: file where the parameters are specified"
    echo ""
-   echo "Check the readme file for additional information"
-   echo "on how to write the parameter file"
+   echo "Check the readme file for additional information on how to write the parameter file"
    exit
 fi
 
