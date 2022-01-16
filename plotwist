@@ -1,0 +1,147 @@
+#!/bin/bash
+
+## Help message
+if [ $# -ne 1 ]
+then
+   echo ""
+   echo "usage: plotwist  <param_file>"
+   echo ""
+   echo "param_file: file where the parameters are specified"
+   echo ""
+   exit
+fi
+
+##Load the parameter
+PFILE=$1
+
+
+echo "Loading parameter file"
+
+WD=$(grep "working_directory:" $PFILE | awk '{ print $2 }')
+FD=$(grep "folder_name:" $PFILE | awk '{ print $2 }')
+GEN=$(grep "genome:" $PFILE | awk '{ print $2 }')
+AN=$(grep "annotation:" $PFILE | awk '{ print $2 }')
+NUMSAM=$(grep "number_samples:" $PFILE | awk '{ print $2 }')
+PAIRED=$(grep "paired_end:" $PFILE | awk '{ print $2 }')
+
+if [ "$PAIRED" == "TRUE" ]
+then
+   CHIP1=()
+   CHIP2=()
+
+   i=0
+   while [ $i -lt $NUMSAM ]
+   do
+      j=$(($i+1))
+      CHIP1[$i]=$(grep "chip${j}_1:" $PFILE | awk '{ print $2 }')
+      CHIP2[$i]=$(grep "chip${j}_2:" $PFILE | awk '{ print $2 }')
+      ((i++))
+   done
+
+   INPUT1=()
+   INPUT2=()
+
+   i=0
+   while [ $i -lt $NUMSAM ]
+   do
+      j=$(($i+1))
+      INPUT1[$i]=$(grep "input${j}_1:" $PFILE | awk '{ print $2 }')
+      INPUT2[$i]=$(grep "input${j}_2:" $PFILE | awk '{ print $2 }')
+      ((i++))
+   done
+else
+   CHIP=()
+
+   i=0
+   while [ $i -lt $NUMSAM ]
+   do
+      j=$(($i+1))
+      CHIP[$i]=$(grep "chip${j}:" $PFILE | awk '{ print $2 }')
+      ((i++))
+   done
+
+   INPUT=()
+
+   i=0
+   while [ $i -lt $NUMSAM ]
+   do
+      j=$(($i+1))
+      INPUT[$i]=$(grep "input${j}:" $PFILE | awk '{ print $2 }')
+      ((i++))
+   done
+fi
+
+echo ""
+echo "Parameters have been loaded:"
+
+echo "working directory: $WD"
+echo "folder name: $FD"
+echo "genome: $GEN"
+echo "annotation: $AN"
+echo "number_samples: $NUMSAM"
+if [ "$PAIRED" == "TRUE" ]
+then
+   echo "chip_1: ${CHIP1[@]}"
+   echo "chip_2: ${CHIP2[@]}"
+   echo "input_1: $INPUT1[@]}"
+   echo "input_2: $INPUT2[@]}"
+else
+   echo "chip: ${CHIP[@]}"
+   echo "input: ${INPUT[@]}"
+fi
+echo ""
+
+## Creating working directory
+
+cd $WD
+mkdir $FD
+cd $FD
+mkdir genome annotation samples results
+cd genome
+cp $GEN genome.fa.gz
+gunzip genome.fa.gz
+cd ../annotation
+cp $AN annotation.gtf.gz
+gunzip annotation.gtf.gz
+
+## Generating genome index
+cd ../genome
+bowtie2-build genome.fa index
+
+## Generating samples folder
+cd ../samples
+
+i=0
+
+while [ $i -lt $NUMSAM ]
+do
+   j=$(($i+1))
+   mkdir sample$j
+   cd sample$j
+   if [ "$PAIRED" == "TRUE" ]
+   then
+      cp ${CHIP1[$i]} chip${j}_1.fq.gz
+      cp ${CHIP2[$i]} chip${j}_2.fq.gz
+      cp ${INPUT1[$i]} input${j}_1.fq.gz
+      cp ${INPUT2[$i]} input${j}_2.fq.gz
+
+   else
+      cp ${CHIP[$i]} chip${j}.fq.gz
+      cp ${INPUT[$i]} input${j}.fq.gz
+   fi
+   cd ..
+   ((i++))
+done
+
+cd ..
+mkdir logs
+cd logs
+
+i=1
+
+while [ $i -le $NUMSAM ]
+do
+   echo "Sample $i submitted for processing"
+   sbatch $PLOTWIST/sampleprocessing.sh $WD/$FD/samples/sample$i $i $NUMSAM $PAIRED
+   ((i++))
+done
