@@ -17,6 +17,9 @@ Plot-Twist procesa archivos fastq y genera una lista de loci en el genoma.
 
 - [SLURM: Sistema de programación de trabajos y administración de clústeres de código abierto](https://slurm.schedmd.com/documentation.html)
 
+- [HOMER: Software para descubrimiento de motivos y análisis de secuenciación de última generación](http://homer.ucsd.edu/homer/introduction/install.html)
+
+
 Para instalar **Plot-Twist** no son necesarios permisos de administrador/sudo, simplemente sigue los siguientes pasos:
 
 1. Descarga el código de Github, por ejemplo, a tu carpeta opt (asegúrate de que tienes dicha carpeta o creala con mkdir opt en tu carpeta home):
@@ -58,3 +61,4 @@ Los parámetros que necesitan ser especificados en el archivo de parámetros son
  
 # Resultados generados por Plot-Twist
  Los resultados y archivos intermediarios generados durante la ejecución del programa serán guardados en la carpeta especificada en el parámetro **folder_name**. 
+
