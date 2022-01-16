@@ -1,3 +1,5 @@
+#! /bin/bash
+
 ## This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International$
 ## Author: Juan Ernesto Perez, Santiago Padilla y Miriam Valdayo
 ## Date: November 2021
