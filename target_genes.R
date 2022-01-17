@@ -7,14 +7,8 @@
 args <- commandArgs(trailingOnly = TRUE)
 
 peak.file <- args[1]
-distance <- args[2]
-sample.num <- args[3]
-
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-
-BiocManager::install("ChIPseeker")
-BiocManager::install("TxDb.Athaliana.BioMart.plantsmart28")
+distance <- as.numeric(args[2])
+sample.num <- as.numeric(args[3])
 
 library(ChIPseeker)
 library(TxDb.Athaliana.BioMart.plantsmart28)
@@ -44,4 +38,4 @@ head(annotation)
 
 target.genes <- annotation$geneId[annotation$annotation == "Promoter"]
 
-write(x = target.genes,file = paste0(c("target_genes_sample_",sample.num,".txt")))
+write(x = target.genes,file = paste0("target_genes_sample_",sample.num,".txt"))
