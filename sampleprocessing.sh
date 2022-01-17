@@ -10,7 +10,6 @@ i=$2
 NUMSAMPLES=$3
 PAIRED=$4
 DISTANCE=$5
-RESULTS=$6
 
 ##Access sample folder
 
@@ -58,7 +57,7 @@ findMotifsGenome.pl sample${i}_summits.bed ../genome/genome.fa homer_sample${i}/
 
 ## Determining target genes
 
-Rscript $PLOTWIST/target_genes.R $RESULTS/sample${i}_peaks.narrowPeak $DISTANCE $i
+Rscript $PLOTWIST/target_genes.R sample${i}_peaks.narrowPeak $DISTANCE $i
 
 ## escribir en el blackboard
 echo "sample ${i} processed" >> ../../logs/blackboard_samples

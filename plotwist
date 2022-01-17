@@ -152,6 +152,6 @@ i=1
 while [ $i -le $NUMSAM ]
 do
    echo "Sample $i submitted for processing"
-   sbatch $PLOTWIST/sampleprocessing.sh $WD/$FD/samples/sample$i $i $NUMSAM $PAIRED $DISTANCE $WD/$FD/results
+   sbatch $PLOTWIST/sampleprocessing.sh $WD/$FD/samples/sample$i $i $NUMSAM $PAIRED $DISTANCE
    ((i++))
 done
