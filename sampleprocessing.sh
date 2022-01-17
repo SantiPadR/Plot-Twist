@@ -60,10 +60,10 @@ findMotifsGenome.pl sample${i}_summits.bed ../genome/genome.fa homer_sample${i}/
 Rscript $PLOTWIST/target_genes.R sample${i}_peaks.narrowPeak $DISTANCE $i
 
 ## escribir en el blackboard
-echo "sample ${i} processed" >> ../../logs/blackboard_samples
+echo "sample ${i} processed" >> ../logs/blackboard_samples
 
 ## reading from blackboard
-NSAMDONE=$(wc -l ../../logs/blackboard_samples | awk '{print $1}')
+NSAMDONE=$(wc -l ../logs/blackboard_samples | awk '{print $1}')
 echo "Number of done samples: $NSAMDONE"
 echo ""
 
@@ -89,5 +89,5 @@ then
    echo "     \  |_|_ Wny                  "
    echo "     (___mnnm"
    echo ""
-echo "All samples have been processed"
+   echo "All samples have been processed"
 fi
