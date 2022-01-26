@@ -32,12 +32,12 @@ git clone https://github.com/SantiPadR/Plot-Twist.git
 2. Añade a tu variable PATH definida en tu .bashrc la ruta a la carpeta de scripts para que los scripts de Plot-Twist puedan ser ejecutados desde la línea de comandos:
 ```
 cd
-echo "PATH=$PATH:$HOME/opt/plotwist/scripts" >> .bashrc
+echo "PATH=$PATH:$HOME/opt/Plot-Twist" >> .bashrc
 source .bashrc
 ```
-3. Añade a tu .bashrc una nueva variable plotwist indicando la ruta a la carpeta de Plot-Twist:
+3. Añade a tu .bashrc una nueva variable PLOTWIST indicando la ruta a la carpeta de Plot-Twist:
 ```
-echo "export plotwist=$HOME/opt/plotwist/" .bashrc
+echo "export PLOTWIST=$HOME/opt/Plot-Twist/" >> .bashrc
 source .bashrc
 ```
 # ¿Cómo se usa?
