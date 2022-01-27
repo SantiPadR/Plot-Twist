@@ -19,6 +19,10 @@ Plot-Twist procesa archivos fastq y genera una lista de loci en el genoma.
 
 - [HOMER: Software para descubrimiento de motivos y análisis de secuenciación de última generación](http://homer.ucsd.edu/homer/introduction/install.html)
 
+- [R: Entorno de software libre para computación estadística y gráficos.](https://www.r-project.org/) Los paquetes necesarios son los siguientes:
+  - [ChIPseeker: Implementa funciones necesarias para el análisis de los picos obtenidos mediante ChIP-seq](https://bioconductor.org/packages/release/bioc/html/ChIPseeker.html)
+  - [TxDb.Athaliana.BioMart.plantsmart28: Expone una base de datos de anotaciones generadas desde BioMart exponiéndolas como objetos TxDb](https://bioconductor.org/packages/release/data/annotation/html/TxDb.Athaliana.BioMart.plantsmart28.html)
+
 
 Para instalar **Plot-Twist** no son necesarios permisos de administrador/sudo, simplemente sigue los siguientes pasos:
 
