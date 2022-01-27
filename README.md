@@ -1,6 +1,6 @@
 # ¿Qué es Plot-Twist?
 
-Plot-Twist es un programa diseñado para automatizar el proceso de análisis de datos de ChIP-seq. 
+Plot-Twist es un programa diseñado para automatizar el proceso de análisis de datos de ChIP-seq de *Arabidopsis thaliana*. 
 Plot-Twist procesa archivos fastq y genera una lista de loci en el genoma.
 
 # ¿Cómo instalarlo?
@@ -47,7 +47,7 @@ Para el procesamiento de los datos usa el ejecutable plotwist con una única ent
 ```
 plotwist <archivo de parámetros>
 ```
-Click aquí para un ejemplo del archivo de parámetros usado para Plot-Twist
+[Click aquí para un ejemplo del archivo de parámetros usado para Plot-Twist](https://github.com/SantiPadR/Plot-Twist/blob/main/example/param_file_test.txt)
 
 Los parámetros que necesitan ser especificados en el archivo de parámetros son los siguientes:
 
@@ -66,4 +66,8 @@ Los parámetros que necesitan ser especificados en el archivo de parámetros son
 - **inputN_2:** Para datos paired-end, este parámetro especifica la ruta de las lecturas derechas de cada una de las muestras control.
 # Resultados generados por Plot-Twist
  Los resultados y archivos intermediarios generados durante la ejecución del programa serán guardados en la carpeta especificada en el parámetro **folder_name**. 
-
+# Datos de ejemplo
+Plot-Twist incluye datos de ejemplo para comprobar que se ha instalado correctamente. Para ello, ejecuta la siguiente instrucción:
+```
+plotwist $PLOTWIST/example/param_file_test.txt
+```
