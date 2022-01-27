@@ -32,12 +32,12 @@ git clone https://github.com/SantiPadR/Plot-Twist.git
 2. Añade a tu variable PATH definida en tu .bashrc la ruta a la carpeta de scripts para que los scripts de Plot-Twist puedan ser ejecutados desde la línea de comandos:
 ```
 cd
-echo "PATH=$PATH:$HOME/opt/plotwist/scripts" >> .bashrc
+echo "PATH=$PATH:$HOME/opt/Plot-Twist" >> .bashrc
 source .bashrc
 ```
-3. Añade a tu .bashrc una nueva variable plotwist indicando la ruta a la carpeta de Plot-Twist:
+3. Añade a tu .bashrc una nueva variable PLOTWIST indicando la ruta a la carpeta de Plot-Twist:
 ```
-echo "export plotwist=$HOME/opt/plotwist/" .bashrc
+echo "export PLOTWIST=$HOME/opt/Plot-Twist/" >> .bashrc
 source .bashrc
 ```
 # ¿Cómo se usa?
@@ -55,10 +55,15 @@ Los parámetros que necesitan ser especificados en el archivo de parámetros son
 - **folder_name:** Este parámetro especifica el nombre de la carpeta donde se guardarán los resultados del análisis. 
 - **genome:** Este parámetro especifica la ruta del archivo fasta del genoma.
 - **annotation:** Este parámetro especifica la ruta de la anotación del genoma. 
-- **number_samples:** Este parámetro especifica el número de muestras del estudio. 
-- **sample<n>:** Este parámetro especifica la ruta de cada una de las muestras del estudio. 
-- **paired_end:** Este parámetro especifica si los datos son single-end (tomará el valor de FALSO) o paired-end (tomará el valor de TRUE). 
+- **number_samples:** Este parámetro especifica el número de muestras de cada tipo (ChIP y control) del estudio. 
+- **paired_end:** Este parámetro especifica si los datos son single-end (tomará el valor de FALSE) o paired-end (tomará el valor de TRUE). 
 - **promoter_distance:** Distancia desde el sitio de inicio de transcripción que se tiene en cuenta como sitio donde hay promotor.  
+- **chipN:** Para datos single-end, este parámetro especifica la ruta de cada una de las muestras de ChIP. 
+- **inputN:** Para datos single-end, este parámetro especifica la ruta de cada una de las muestras control.
+- **chipN_1:** Para datos paired-end, este parámetro especifica la ruta de las lecturas izquierdas de cada una de las muestras de ChIP.
+- **chipN_2:** Para datos paired-end, este parámetro especifica la ruta de las lecturas derechas cada una de las muestras de ChIP.
+- **inputN_1:** Para datos paired-end, este parámetro especifica la ruta de las lecturas izquierdas de cada una de las muestras control.
+- **inputN_2:** Para datos paired-end, este parámetro especifica la ruta de las lecturas derechas de cada una de las muestras control.
 # Resultados generados por Plot-Twist
  Los resultados y archivos intermediarios generados durante la ejecución del programa serán guardados en la carpeta especificada en el parámetro **folder_name**. 
 
