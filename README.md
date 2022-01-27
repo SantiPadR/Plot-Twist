@@ -55,7 +55,7 @@ Los parámetros que necesitan ser especificados en el archivo de parámetros son
 - **folder_name:** Este parámetro especifica el nombre de la carpeta donde se guardarán los resultados del análisis. 
 - **genome:** Este parámetro especifica la ruta del archivo fasta del genoma.
 - **annotation:** Este parámetro especifica la ruta de la anotación del genoma. 
-- **number_samples:** Este parámetro especifica el número de muestras del estudio. 
+- **number_samples:** Este parámetro especifica el número de muestras de cada tipo (ChIP y control) del estudio. 
 - **paired_end:** Este parámetro especifica si los datos son single-end (tomará el valor de FALSE) o paired-end (tomará el valor de TRUE). 
 - **promoter_distance:** Distancia desde el sitio de inicio de transcripción que se tiene en cuenta como sitio donde hay promotor.  
 - **chipN:** Para datos single-end, este parámetro especifica la ruta de cada una de las muestras de ChIP. 
