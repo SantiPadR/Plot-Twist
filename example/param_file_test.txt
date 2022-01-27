@@ -1,0 +1,9 @@
+working_directory: $HOME
+folder_name: plot_twist_example
+genome: $PLOTWIST/example/chromosome1.fa.gz
+annotation: $PLOTWIST/example/chromosome1.gtf.gz
+number_samples: 1
+paired_end: FALSE
+promoter_distance: 1000
+chip1: $PLOTWIST/example/chip_prr5_chr1.fq.gz
+input1: $PLOTWIST/example/input_prr5_chr1.fq.gz
