@@ -24,27 +24,35 @@ then
 
    bowtie2 -x ../../genome/index -1 chip${i}_1.fq.gz -2 chip${i}_2.fq.gz -S chip${i}.sam
 
+   samtools sort -o chip${i}.bam chip${i}.sam
+   rm chip${i}.sam
+   samtools index chip${i}.bam
+
    fastqc input${i}_1.fq.gz
    fastqc input${i}_2.fq.gz
 
    bowtie2 -x ../../genome/index -1 input${i}_1.fq.gz -2 input${i}_2.fq.gz -S input${i}.sam
+
+   samtools sort -o input${i}.bam input${i}.sam
+   rm input${i}.sam
+   samtools index input${i}.bam
 else
    fastqc chip${i}.fq.gz
 
    bowtie2 -x ../../genome/index -U chip${i}.fq.gz -S chip${i}.sam
 
+   samtools sort -o chip${i}.bam chip${i}.sam
+   rm chip${i}.sam
+   samtools index chip${i}.bam
+
    fastqc input${i}.fq.gz
 
    bowtie2 -x ../../genome/index -U input${i}.fq.gz -S input${i}.sam
+
+   samtools sort -o input${i}.bam input${i}.sam
+   rm input${i}.sam
+   samtools index input${i}.bam
 fi
-
-samtools sort -o chip${i}.bam chip${i}.sam
-rm chip${i}.sam
-samtools index chip${i}.bam
-
-samtools sort -o input${i}.bam input${i}.sam
-rm input${i}.sam
-samtools index input${i}.bam
 
 ## Peak calling
 
