@@ -93,8 +93,8 @@ if [ "$PAIRED" == "TRUE" ]
 then
    echo "chip_1: ${CHIP1[@]}"
    echo "chip_2: ${CHIP2[@]}"
-   echo "input_1: $INPUT1[@]}"
-   echo "input_2: $INPUT2[@]}"
+   echo "input_1: ${INPUT1[@]}"
+   echo "input_2: ${INPUT2[@]}"
 else
    echo "chip: ${CHIP[@]}"
    echo "input: ${INPUT[@]}"
